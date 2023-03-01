@@ -1,12 +1,28 @@
 import React from "react";
-import { SafeAreaView, Text } from "react-native-safe-area-context";
+import { SafeAreaView, Text, StyleSheet, Button } from "react-native";
 
-function First(){
+function First(props){
+     console.log(props);
+
+
+    function NavigateToPage(){
+        props.navigation.navigate('SecondScreen');
+    }
+
+
+
     return(
-        <SafeAreaView>
-            <Text>First Page</Text>
+        <SafeAreaView style={styles.container}>
+            <Text style={styles.text}>First Page</Text>
+            <Button title="Go to Second" onPress={NavigateToPage}/>
         </SafeAreaView>
     );
 }
 
 export default First;
+
+
+const styles = StyleSheet.create({
+    container: {flex:1, alignItems: 'center', justifyContent: 'center'},
+    text: {fontSize:40, fontWeight: 'bold'}
+});
