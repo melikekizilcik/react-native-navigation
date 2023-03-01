@@ -4,6 +4,8 @@ import { SafeAreaView, Text, StyleSheet, Button } from "react-native";
 function Second(props){
     console.log(props);
 
+    const user = props.route.params.username;
+
     function backToFirst(){
         props.navigation.goBack();
     }
@@ -12,6 +14,7 @@ function Second(props){
     return(
         <SafeAreaView style={styles.container}>
             <Text style={styles.text}>Second Page</Text>
+            <Text style={styles.text}>{user}</Text>
             <Button title="Go Back" 
             onPress={backToFirst}
             />
